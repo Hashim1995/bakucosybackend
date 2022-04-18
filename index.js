@@ -14,7 +14,8 @@ db.once("open", () => console.log("Connected to Database "));
 
 app.use(express.json());
 const productlistRouter = require("./routes/productlist");
+const test = require("./routes/test");
 
 app.use("/productlist", productlistRouter);
-
+app.use("/test", test);
 app.listen(3000, () => console.log("Server is running"));
