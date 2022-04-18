@@ -9,10 +9,38 @@ POST http://localhost:3000/productlist
 Content-Type: application/json
 
 {
-    "name": "Samsung Galaxy s15",
-    "price": 1666,
-    "description": "It's good Samsung s15"
-}
+      "barcode": 112,
+      "title": "Hans Backpack",
+      "price": 79,
+      "rate": 3,
+      "discount": 4,
+      "about": {
+        "colors": ["blue", "black", "lime", "purple", "yellow"],
+        "sizes": ["xs", "s", "m", "l", "xl"],
+        "weight": "0.5kg",
+        "dimensions": "20x20x20cm",
+        "origin": "England",
+        "materials": ["80% cotton", "20% linen"],
+        "tags": [
+          "leather",
+          "modern",
+          "brown",
+          "backpack",
+          "handbag",
+          "sport",
+          "leather",
+          "modern",
+          "brown",
+          "eco"
+        ]
+      },
+      "isStock": true,
+      "isNew": true,
+      "popularity": 94,
+      "isSale": false,
+      "stockCount": 12,
+      "description": "Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and materialDesigned Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and material Designed for simplicity and made from high quality materials. Its sleek geometry and material for simplicity and made from high quality materials. Its sleek geometry and material simplicity and made from high quality materials. Its sleek geometry and material   combinations creates a modern personalized look."
+    }
 
 ###
 PATCH http://localhost:3000/productlist/625d3f91dd25d90a34433d7b

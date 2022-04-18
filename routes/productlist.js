@@ -21,8 +21,18 @@ router.get("/:id", getProduct, (req, res) => {
 // creating a new product
 router.post("/", async (req, res) => {
   const product = new Product({
-    name: req.body.name,
+    barcode: req.body.barcode,
+    title: req.body.title,
     price: req.body.price,
+    rate: req.body.rate,
+    discount: req.body.discount,
+    imgList: req.body.imgList,
+    isStock: req.body.isStock,
+    isNew: req.body.isNew,
+    isSale: req.body.isSale,
+    popularity: req.body.popularity,
+    stockCount: req.body.stockCount,
+    about: req.body.about,
     description: req.body.description,
   });
   try {
