@@ -2,24 +2,24 @@
 GET http://localhost:3000/productlist/
 
 ###
-DELETE http://localhost:3000/productlist/625c84da66e3970a38cb7da0
+DELETE http://localhost:3000/productlist/625d3f91dd25d90a34433d7b
 
 ###
 POST http://localhost:3000/productlist
 Content-Type: application/json
 
 {
-    "name": "Macbook air",
-    "price": 2500,
-    "description": "It's good Mac"
+    "name": "Samsung Galaxy s15",
+    "price": 1666,
+    "description": "It's good Samsung s15"
 }
 
 ###
-PATCH http://localhost:3000/productlist/625c9062df93a58996246796
+PATCH http://localhost:3000/productlist/625d3f91dd25d90a34433d7b
 Content-Type: application/json
 
 {
-    "name": "Macbook Pro 16  inch",
-    "price": 4530,
-    "description": "It's good Mac Pro 16 inch" 
+    "name": "Apple airpods",
+    "price": 5020,
+    "description": "It's good updated Apple" 
 }
