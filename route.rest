@@ -1,0 +1,25 @@
+###
+GET http://localhost:3000/productlist/
+
+###
+DELETE http://localhost:3000/productlist/625c84da66e3970a38cb7da0
+
+###
+POST http://localhost:3000/productlist
+Content-Type: application/json
+
+{
+    "name": "Macbook air",
+    "price": 2500,
+    "description": "It's good Mac"
+}
+
+###
+PATCH http://localhost:3000/productlist/625c9062df93a58996246796
+Content-Type: application/json
+
+{
+    "name": "Macbook Pro 16  inch",
+    "price": 4530,
+    "description": "It's good Mac Pro 16 inch" 
+}
