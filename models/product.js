@@ -1,36 +1,30 @@
 const mongoose = require("mongoose");
 const productScheme = new mongoose.Schema({
+  categoryId: {
+    type: Number,
+    required: true,
+  },
+  categories: {
+    type: [String],
+    required: true,
+  },
   barcode: {
     type: Number,
+    required: true,
   },
   title: {
     type: String,
+    required: true,
   },
   price: {
     type: Number,
+    required: true,
   },
   rate: {
     type: Number,
+    required: true,
   },
   discount: {
-    type: Number,
-  },
-  imgList: {
-    type: Array,
-  },
-  isStock: {
-    type: Boolean,
-  },
-  isNew: {
-    type: Boolean,
-  },
-  isSale: {
-    type: Boolean,
-  },
-  popularity: {
-    type: Number,
-  },
-  stockCount: {
     type: Number,
   },
   about: {
@@ -41,9 +35,30 @@ const productScheme = new mongoose.Schema({
     origin: String,
     materials: [String],
     tags: [String],
+    description: String,
   },
-  description: {
-    type: String,
+  imgList: {
+    type: [String],
+    required: true,
+  },
+  isStock: {
+    type: Boolean,
+    required: true,
+  },
+  isNew: {
+    type: Boolean,
+    required: true,
+  },
+  isSale: {
+    type: Boolean,
+    required: true,
+  },
+  popularity: {
+    type: Number,
+  },
+  stockCount: {
+    type: Number,
+    required: true,
   },
 });
 
