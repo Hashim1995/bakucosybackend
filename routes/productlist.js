@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // getting one product
-router.get("/:slug", getProduct, (req, res) => {
+router.get("/:slug", getProductBySlug, (req, res) => {
   res.json(res.product);
 });
 
@@ -132,5 +132,18 @@ async function getProduct(req, res, next) {
   res.product = product;
   next();
 }
-
+// middleware for slug
+async function getProductBySlug(req, res, next) {
+  let product;
+  try {
+    product = await Product.find({ slug: req.params.slug });
+    if (product == null) {
+      return res.status(404).json({ message: "Cannot find product" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+  res.product = product;
+  next();
+}
 module.exports = router;
