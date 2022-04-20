@@ -100,11 +100,11 @@ router.patch("/:id", getProduct, async (req, res) => {
   }
 });
 
-// deleting a product
-router.delete("/:id", getProduct, async (req, res) => {
+// deleting all product
+router.delete("/deleteall", async (req, res) => {
   try {
-    await res.product.remove();
-    res.json({ message: "Deleted product" });
+    await Product.remove();
+    res.json({ message: "Deleted all products" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
