@@ -46,14 +46,51 @@ router.post("/", async (req, res) => {
 
 // updating a product
 router.patch("/:id", getProduct, async (req, res) => {
-  if (req.body.name !== null) {
-    res.product.name = req.body.name;
+  if (req.body.categoryId !== null) {
+    res.product.categoryId = req.body.categoryId;
+  }
+  if (req.body.categories !== null) {
+    res.product.categories = req.body.categories;
+  }
+  if (req.body.categories !== null) {
+    res.product.categories = req.body.categories;
+  }
+  if (req.body.barcode !== null) {
+    res.product.barcode = req.body.barcode;
+  }
+  if (req.body.title !== null) {
+    res.product.title = req.body.title;
   }
   if (req.body.price !== null) {
     res.product.price = req.body.price;
   }
-  if (req.body.description !== null) {
-    res.product.description = req.body.description;
+
+  if (req.body.rate !== null) {
+    res.product.rate = req.body.rate;
+  }
+  if (req.body.discount !== null) {
+    res.product.discount = req.body.discount;
+  }
+  if (req.body.about !== null) {
+    res.product.about = req.body.about;
+  }
+  if (req.body.imgList !== null) {
+    res.product.imgList = req.body.imgList;
+  }
+  if (req.body.isStock !== null) {
+    res.product.isStock = req.body.isStock;
+  }
+  if (req.body.isNew !== null) {
+    res.product.isNew = req.body.isNew;
+  }
+  if (req.body.isSale !== null) {
+    res.product.isSale = req.body.isSale;
+  }
+  if (req.body.popularity !== null) {
+    res.product.popularity = req.body.popularity;
+  }
+  if (req.body.stockCount !== null) {
+    res.product.stockCount = req.body.stockCount;
   }
   try {
     const updatedProduct = await res.product.save();
