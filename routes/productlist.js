@@ -138,7 +138,7 @@ async function getProductBySlug(req, res, next) {
   try {
     product = await Product.find({ slug: req.params.slug });
     if (product == null) {
-      return res.status(404).json({ message: "Cannot find product" });
+      return res.status(404).json({ message: "Cannot find product by slug" });
     }
   } catch (err) {
     return res.status(500).json({ message: err.message });
