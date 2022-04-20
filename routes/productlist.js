@@ -1,5 +1,4 @@
 const express = require("express");
-const product = require("../models/product");
 const router = express.Router();
 const Product = require("../models/product");
 
@@ -108,6 +107,15 @@ router.delete("/deleteall", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
+});
+
+//insert multiple items
+router.post("/items", (req, res) => {
+  Product.insertMany(req.body)
+    .then((items) => {
+      res.status(201).send(items);
+    })
+    .catch((err) => res.status(404).send(err));
 });
 
 // middleware

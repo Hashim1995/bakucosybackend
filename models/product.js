@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const productScheme = new mongoose.Schema({
+  time: { type: Date, default: Date.now() },
   categoryId: {
     type: Number,
     required: true,
