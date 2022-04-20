@@ -9,14 +9,14 @@
   "scripts": {
     "start": "node index.js",
     "devStart": "nodemon server.js"
-
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
     "express": "^4.17.3",
-    "mongoose": "^6.2.11"
+    "mongoose": "^6.2.11",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",

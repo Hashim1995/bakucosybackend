@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+slug = require("mongoose-slug-generator");
+mongoose.plugin(slug);
 const productScheme = new mongoose.Schema({
   time: { type: Date, default: Date.now() },
   categoryId: {
@@ -61,6 +63,7 @@ const productScheme = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  slug: { type: String, slug: ["title", "barcode"] },
 });
 
 module.exports = mongoose.model("Product", productScheme);
