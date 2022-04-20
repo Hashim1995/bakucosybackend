@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // getting one product
-router.get("/:id", getProduct, (req, res) => {
+router.get("/:slug", getProduct, (req, res) => {
   res.json(res.product);
 });
 
