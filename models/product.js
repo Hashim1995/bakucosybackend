@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-var URLSlug = require("mongoose-slug-generator");
-mongoose.plugin(URLSlug);
+const mongooseSlugPlugin = require("mongoose-slug-plugin");
+
 const productScheme = new mongoose.Schema(
   {
     time: { type: Date, default: Date.now() },
@@ -65,10 +65,14 @@ const productScheme = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    slug: { type: String, slug: "title" },
   },
   { timestamps: true }
 );
+
+productScheme.plugin(mongooseSlugPlugin, {
+  tmpl: "<%=title%>-<%=_id%>-<%=barcode%>",
+  historyField: false,
+});
 
 productScheme.pre("save", function (next) {
   this.slug = this.title.split(" ").join("-");
