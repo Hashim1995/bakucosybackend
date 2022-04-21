@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/product");
-
+const cors = require("cors");
 // getting all products
+
+const corsOptions = {
+  origin: "http://example.com",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 router.get("/showall", async (req, res) => {
   try {
     const product = await Product.find();
@@ -12,7 +17,7 @@ router.get("/showall", async (req, res) => {
   }
 });
 
-router.get("/pagination", async (req, res) => {
+router.get("/pagination", cors(corsOptions), async (req, res) => {
   const page = req.query.page;
   const limit = req.query.limit;
   const startIndex = (page - 1) * limit;
