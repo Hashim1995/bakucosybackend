@@ -1,7 +1,8 @@
 ###
 GET http://localhost:3000/productlist/
 
-
+###
+GET http://localhost:3000/productlist/pagination/page=5&limit=5
 
 ###
 DELETE http://localhost:3000/productlist/625d3f91dd25d90a34433d7b
