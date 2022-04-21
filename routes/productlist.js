@@ -5,7 +5,7 @@ const cors = require("cors");
 // getting all products
 
 const corsOptions = {
-  origin: "http://example.com",
+  origin: "*",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 router.get("/showall", async (req, res) => {
