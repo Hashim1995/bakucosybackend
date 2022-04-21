@@ -1,5 +1,5 @@
 const express = require("express");
-var cors = require("cors");
+const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -24,4 +24,17 @@ app.use(
     origin: "*",
   })
 );
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  if (req.method == "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+    return res.status(200).json({});
+  }
+
+  next();
+});
 app.listen(3000, () => console.log("Server is running"));
