@@ -1,9 +1,5 @@
 const express = require("express");
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+
 const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -23,4 +19,9 @@ const test = require("./routes/test");
 
 app.use("/productlist", productlistRouter);
 app.use("/test", test);
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.listen(3000, () => console.log("Server is running"));
