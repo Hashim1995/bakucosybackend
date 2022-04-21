@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require("../models/product");
 
 // getting all products
-router.get("/", async (req, res) => {
+router.get("/showall", async (req, res) => {
   try {
     const product = await Product.find();
     res.json(product);
@@ -18,7 +18,7 @@ router.get("/:slug", getProductBySlug, (req, res) => {
 });
 
 // creating a new product
-router.post("/", async (req, res) => {
+router.post("/create", async (req, res) => {
   const product = new Product({
     categoryId: req.body.categoryId,
     categories: req.body.categories,
@@ -44,7 +44,7 @@ router.post("/", async (req, res) => {
 });
 
 // updating a product
-router.patch("/:id", getProduct, async (req, res) => {
+router.patch("/:slug", getProductBySlug, async (req, res) => {
   if (req.body.categoryId !== null) {
     res.product.categoryId = req.body.categoryId;
   }
@@ -110,7 +110,7 @@ router.delete("/deleteall", async (req, res) => {
 });
 
 //insert multiple items
-router.post("/items", (req, res) => {
+router.post("/insertmultiple", (req, res) => {
   Product.insertMany(req.body)
     .then((items) => {
       res.status(201).send(items);
