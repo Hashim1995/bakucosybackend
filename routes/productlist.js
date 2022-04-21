@@ -5,6 +5,11 @@ const cors = require("cors");
 // getting all products
 
 const corsOptions = {
+  headers: [
+    { key: "Access-Control-Allow-Credentials", value: "true" },
+    { key: "Access-Control-Allow-Origin", value: "*" },
+    // ...
+  ],
   origin: "*",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
