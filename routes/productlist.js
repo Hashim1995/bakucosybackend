@@ -12,6 +12,16 @@ router.get("/showall", async (req, res) => {
   }
 });
 
+router.get("/pagination", async (req, res) => {
+  const page = req.query.page;
+  const limit = req.query.limit;
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const products = await Product.find();
+  const result = products.slice(startIndex, endIndex);
+  res.json(result);
+});
+
 // getting one product
 router.get("/:slug", getProductBySlug, (req, res) => {
   res.json(res.product);
