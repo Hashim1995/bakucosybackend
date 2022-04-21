@@ -18,8 +18,8 @@ router.get("/showall", async (req, res) => {
 });
 
 router.post("/pagination", cors(corsOptions), async (req, res) => {
-  const page = req.body.params.page;
-  const limit = req.body.params.limit;
+  const page = req.query.page;
+  const limit = req.query.limit;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const products = await Product.find();
