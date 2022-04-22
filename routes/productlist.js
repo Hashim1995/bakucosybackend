@@ -23,13 +23,17 @@ router.get("/showall", async (req, res) => {
 });
 
 router.get("/pagination", cors(corsOptions), async (req, res) => {
-  const page = req.query.page;
-  const limit = req.query.limit;
-  const startIndex = (page - 1) * limit;
-  const endIndex = page * limit;
-  const products = await Product.find();
-  const result = products.slice(startIndex, endIndex);
-  res.json(result);
+  try {
+    const page = req.query.page;
+    const limit = req.query.limit;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const products = await Product.find();
+    const result = products.slice(startIndex, endIndex);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 // getting one product
@@ -147,7 +151,7 @@ async function getProduct(req, res, next) {
       return res.status(404).json({ message: "Cannot find product" });
     }
   } catch (err) {
-    return res.status(500).json({ message: err.message });
+    return res.status(00).json({ message: err.message });
   }
   res.product = product;
   next();
