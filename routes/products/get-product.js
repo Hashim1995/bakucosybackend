@@ -20,3 +20,5 @@ async function getProductBySlug(req, res, next) {
   res.product = product;
   next();
 }
+
+module.exports = router;
