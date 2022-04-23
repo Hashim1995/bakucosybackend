@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../../models/product");
 // getting one product
-router.get("/product/:slug", getProductBySlug, (req, res) => {
+router.get("/get-product/:slug", getProductBySlug, (req, res) => {
   res.json(res.product);
 });
 
