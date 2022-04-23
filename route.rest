@@ -1,11 +1,11 @@
 ###
-GET http://localhost:3000/productlist/
+GET http://localhost:3000/productlist/showall
 
 ###
 GET http://localhost:3000/productlist/pagination/page=5&limit=5
 
 ###
-DELETE http://localhost:3000/productlist/625d3f91dd25d90a34433d7b
+DELETE http://localhost:3000/productlist/deleteall
 
 ###
 POST http://localhost:3000/productlist
@@ -46,6 +46,8 @@ Content-Type: application/json
     }
 
 ###
+
+
 PATCH http://localhost:3000/productlist/625d3f91dd25d90a34433d7b
 Content-Type: application/json
 
