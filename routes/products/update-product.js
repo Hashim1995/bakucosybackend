@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../../models/product");
 
-router.patch("/update-item/:id", async (req, res) => {
+router.patch("/update-product/:id", async (req, res) => {
   const updatedItemReq = {
     title: req.body.title,
     categoryId: req.body.categoryId,

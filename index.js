@@ -29,12 +29,22 @@ app.use(express.json());
 //call the cors method
 app.use(cors());
 
-//getting productlistRouter route file
-const productlistRouter = require("./routes/products/productlist");
-const users = require("./routes/users/users");
+//getting  routes file
+const createProduct = require("./routes/products/create-product");
+const createProducts = require("./routes/products/create-products");
+const deleteProduct = require("./routes/products/delete-product");
+const deleteProducts = require("./routes/products/delete-products");
+const getProduct = require("./routes/products/get-product");
+const getProducts = require("./routes/products/get-products");
+const updateProduct = require("./routes/products/update-product");
 //connect the route to applciation
-app.use("/productlist", productlistRouter);
-// app.use("/users", users);
+app.use("/", createProduct);
+app.use("/", createProducts);
+app.use("/", deleteProduct);
+app.use("/", deleteProducts);
+app.use("/", getProduct);
+app.use("/", getProducts);
+app.use("/", updateProduct);
 
 //start the server
 app.listen(3000, () => console.log("Server is running"));
