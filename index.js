@@ -10,6 +10,9 @@ const app = express();
 //initialized .env
 require("dotenv").config();
 
+//initialized cookie-parser
+const cookieParser = require("cookie-parser");
+
 //initialized mongoose
 const mongoose = require("mongoose");
 
@@ -29,6 +32,9 @@ app.use(express.json());
 //call the cors method
 app.use(cors());
 
+//call the cookie-parser method
+app.use(cookieParser());
+
 //getting  routes file
 const createProduct = require("./routes/products/create-product");
 const createProducts = require("./routes/products/create-products");
@@ -37,6 +43,8 @@ const deleteProducts = require("./routes/products/delete-products");
 const getProduct = require("./routes/products/get-product");
 const getProducts = require("./routes/products/get-products");
 const updateProduct = require("./routes/products/update-product");
+const registerUser = require("./routes/users/register-user");
+const loginUser = require("./routes/users/login-user");
 //connect the route to applciation
 app.use("/", createProduct);
 app.use("/", createProducts);
@@ -45,6 +53,8 @@ app.use("/", deleteProducts);
 app.use("/", getProduct);
 app.use("/", getProducts);
 app.use("/", updateProduct);
+app.use("/", registerUser);
+app.use("/", loginUser);
 
 //start the server
 app.listen(3000, () => console.log("Server is running"));
