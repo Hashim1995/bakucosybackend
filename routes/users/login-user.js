@@ -23,7 +23,9 @@ router.post("/login-user", async (req, res) => {
           message: `The password is invalid`,
         });
       } else {
-        const accessToken = createToken(user);
+        const accessToken = createToken(user.email, {
+          expiresIn: "2h",
+        });
         const userData = {
           name: user.name,
           surname: user.surname,

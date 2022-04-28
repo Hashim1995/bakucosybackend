@@ -45,6 +45,7 @@ const getProducts = require("./routes/products/get-products");
 const updateProduct = require("./routes/products/update-product");
 const registerUser = require("./routes/users/register-user");
 const loginUser = require("./routes/users/login-user");
+
 //connect the route to applciation
 app.use("/", createProduct);
 app.use("/", createProducts);
