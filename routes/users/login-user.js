@@ -24,7 +24,7 @@ router.post("/login-user", async (req, res) => {
         });
       } else {
         const accessToken = createToken(user.email, {
-          expiresIn: "2h",
+          expiresIn: "7d",
         });
         const userData = {
           name: user.name,
@@ -35,10 +35,6 @@ router.post("/login-user", async (req, res) => {
           id: user._id,
         };
 
-        res.cookie("access-token", accessToken, {
-          maxAge: 60 * 60 * 24 * 30 * 1000,
-          httpOnly: true,
-        });
         res.send({
           status: "success",
           userFound: true,
